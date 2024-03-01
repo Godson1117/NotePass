@@ -1,5 +1,5 @@
 import React from "react"
-import { CardActionArea } from "@mui/material"
+import { CardActionArea, Grid } from "@mui/material"
 import AppBar from "@mui/material/AppBar"
 import Box from "@mui/material/Box"
 import Toolbar from "@mui/material/Toolbar"
@@ -11,7 +11,6 @@ import { motion } from "framer-motion"
 import { Link } from "react-router-dom"
 
 const Homepage = () => {
-
   return (
     <>
       <Box sx={{ flexGrow: 1 }}>
@@ -68,7 +67,6 @@ const Homepage = () => {
           variant="h3"
           align="center"
           component={motion.div}
-          mt={2}
           sx={{
             background: 'linear-gradient(207deg, rgba(255,0,0,1) 28%, rgba(0,255,223,1) 60%)',
             WebkitBackgroundClip: 'text',
@@ -88,11 +86,11 @@ const Homepage = () => {
             delay: 1,
           }}
         >
-          Welcome to NOTEPASS
+          NOTEPASS
         </Typography>
         <Typography
-          variant="h6"
-          sx={{ textShadow: '4px 0px red' }}
+          variant="subtitle1"
+          sx={{ textShadow: '4px 0px red', m: 5 }}
           align="center"
         >
           <i>One place for your every task</i>
@@ -128,200 +126,57 @@ const Homepage = () => {
           }}
         />
 
-        <Card
-          sx={{
-            maxWidth: 300,
-            maxHeight: 300,
-            borderRadius: 5,
-            mt: 2,
-            backgroundColor: 'rgba(11, 21, 26, 0.3)',
-            backdropFilter: 'blur(6px) saturate(101%)',
-          }}
-          component={motion.div}
-          initial={{
-            x: '-50vw',
-          }}
-          whileInView={{
-            x: '0vw',
-            transition: {
-              duration: 1,
-              type: 'spring',
-              bounce: 0.5,
-            },
-          }}
-          whileHover={{
-            scale: 1.1,
-          }}
-        >
-          <CardActionArea>
-            <CardContent>
-              <Typography
-                gutterBottom
-                variant="h5"
-                component="div"
-                color="error"
-              >
-                Simple UI
-              </Typography>
-              <Typography variant="body2" color="#0097a7">
-                Our user-friendly interface makes it easy to create, organize,
-                and access your notes and passwords
-              </Typography>
-            </CardContent>
-          </CardActionArea>
-        </Card>
-
-        <Card
-          sx={{
-            maxWidth: 300,
-            maxHeight: 300,
-            borderRadius: 5,
-            mt: 2,
-            backgroundColor: 'rgba(11, 21, 26, 0.3)',
-            backdropFilter: 'blur(6px) saturate(101%)',
-          }}
-          component={motion.div}
-          initial={{
-            x: '50vw',
-          }}
-          whileInView={{
-            x: '0vw',
-            transition: {
-              duration: 1,
-              type: 'spring',
-              bounce: 0.5,
-            },
-          }}
-          whileHover={{
-            scale: 1.1,
-          }}
-        >
-          <CardActionArea>
-            <CardContent>
-              <Typography
-                gutterBottom
-                variant="h5"
-                component="div"
-                color="error"
-              >
-                Three in One
-              </Typography>
-              <Typography variant="body2" color="#0097a7">
-                A single platform where you can manage both notes and password
-                with the additional benefit of password generator,where you
-                can generate strong passwords according to your requirements
-              </Typography>
-            </CardContent>
-          </CardActionArea>
-        </Card>
-
-        <Card
-          sx={{
-            maxWidth: 300,
-            maxHeight: 300,
-            borderRadius: 5,
-            mt: 2,
-            backgroundColor: 'rgba(11, 21, 26, 0.3)',
-            backdropFilter: 'blur(6px) saturate(101%)',
-          }}
-          component={motion.div}
-          initial={{
-            x: '-50vw',
-          }}
-          whileInView={{
-            x: '0vw',
-            transition: {
-              duration: 1,
-              type: 'spring',
-              bounce: 0.5,
-            },
-          }}
-          whileHover={{
-            scale: 1.1,
-          }}
-        >
-          <CardActionArea>
-            <CardContent>
-              <Typography
-                gutterBottom
-                variant="h5"
-                component="div"
-                color="error"
-              >
-                Accessibility
-              </Typography>
-              <Typography variant="body2" color="#0097a7">
-                All datas are stored in the cloud such that you can access
-                your notes and passwords anytime,anywhere with your favorite
-                device including mobile phones,laptops,desktops
-              </Typography>
-            </CardContent>
-          </CardActionArea>
-        </Card>
-
-        <Card
-          sx={{
-            maxWidth: 300,
-            maxHeight: 300,
-            borderRadius: 5,
-            mt: 2,
-            backgroundColor: 'rgba(11, 21, 26, 0.3)',
-            backdropFilter: 'blur(6px) saturate(101%)',
-          }}
-          component={motion.div}
-          initial={{
-            x: '50vw',
-          }}
-          whileInView={{
-            x: '0vw',
-            transition: {
-              duration: 1,
-              type: 'spring',
-              bounce: 0.5,
-            },
-          }}
-          whileHover={{
-            scale: 1.1,
-          }}
-        >
-          <CardActionArea>
-            <CardContent>
-              <Typography
-                gutterBottom
-                variant="h5"
-                component="div"
-                color="error"
-              >
-                Security
-              </Typography>
-              <Typography variant="body2" color="#0097a7">
-                Our top priority is the security of your data, and we have
-                implemented strict measures to ensure that your information is
-                protected. So, whether you're managing your personal notes or
-                your company's passwords, we've got you covered
-              </Typography>
-            </CardContent>
-          </CardActionArea>
-        </Card>
+        <Grid container justifyContent="center" spacing={2} mt={3}>
+          {features.map((feature, index) => (
+            <Grid key={index} item xs={12} sm={6} md={4} lg={3}>
+              <motion.div whileHover={{ scale: 1.1 }}>
+                <Card
+                  sx={{
+                    maxWidth: 300,
+                    maxHeight: 300,
+                    borderRadius: 5,
+                    mt: 2,
+                    backgroundColor: 'rgba(11, 21, 26, 0.3)',
+                    backdropFilter: 'blur(6px) saturate(101%)',
+                  }}
+                >
+                  <CardActionArea>
+                    <CardContent>
+                      <Typography gutterBottom variant="h5" component="div" color="error">
+                        {feature.title}
+                      </Typography>
+                      <Typography variant="body2" color="#0097a7">
+                        {feature.description}
+                      </Typography>
+                    </CardContent>
+                  </CardActionArea>
+                </Card>
+              </motion.div>
+            </Grid>
+          ))}
+        </Grid>
       </Box>
-
-      <Typography
-        variant="body1"
-        color="white"
-        sx={{ textAlign: 'center', mt: 2, textShadow: '2px 2px red' }}
-        component={motion.div}
-        animate={{
-          scale: [1.1, 1],
-        }}
-        transition={{
-          duration: 1,
-          repeat: Infinity,
-        }}
-      >
-        Join NOTEPASS now and lead a peaceful digital life
-      </Typography>
     </>
   );
 }
+
+const features = [
+  {
+    title: 'Simple UI',
+    description: 'Our user-friendly interface makes it easy to create, organize, and access your notes and passwords',
+  },
+  {
+    title: 'Three in One',
+    description: 'A single platform where you can manage both notes and passwords with the additional benefit of password generator',
+  },
+  {
+    title: 'Accessibility',
+    description: 'All data are stored in the cloud, allowing you to access your notes and passwords anytime, anywhere with your favorite device.',
+  },
+  {
+    title: 'Security',
+    description: 'Our top priority is the security of your data, and we have implemented strict measures to ensure that your information is protected.',
+  },
+];
 
 export default Homepage;
