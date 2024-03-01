@@ -68,22 +68,10 @@ const Homepage = () => {
           align="center"
           component={motion.div}
           sx={{
-            background: 'linear-gradient(207deg, rgba(255,0,0,1) 28%, rgba(0,255,223,1) 60%)',
+            background: 'linear-gradient(140deg, rgba(255,0,0,1) 30%, rgba(0,255,223,1) 60%)',
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent',
             mt: 10,
-          }}
-          initial={{
-            opacity: 0,
-          }}
-          animate={{
-            opacity: [1, 0],
-            scale: 1.2,
-          }}
-          transition={{
-            repeat: Infinity,
-            duration: 4,
-            delay: 1,
           }}
         >
           NOTEPASS
@@ -101,7 +89,7 @@ const Homepage = () => {
           sx={{
             mt: 2,
             textAlign: 'center',
-            background: 'radial-gradient(circle, rgba(255,0,1,1) 14%, rgba(0,255,244,1) 92%)',
+            background: 'linear-gradient(270deg, rgba(255,0,0,1) 30%, rgba(0,255,223,1) 60%)',
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent',
           }}

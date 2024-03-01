@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Alert, Box } from '@mui/material';
+import { Alert, Box, Grid } from '@mui/material';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import '../App.css'
 
@@ -97,78 +97,88 @@ const Passgen = () => {
       }}>
         {show && <Alert severity={feedback.success ? 'success' : 'error'}>{feedback.message}</Alert>}
       </Box>
-      <div className='container'>
-        <div className='generator'>
-          <h2 className='generator__header'>Password Generator</h2>
-          <div className='generator__password'>
-            <h3 style={{ margin: 'auto' }}>{password}</h3>
-            <button onClick={handleCopyPassword} className='copy__btn'>
-              <ContentCopyIcon />
-            </button>
-          </div>
+      <Grid
+        container
+        direction="column"
+        alignItems="center"
+        justifyContent="center"
+        rowSpacing={1}>
 
-          <div className='form-group'>
-            <label htmlFor='password-strength'>Password length</label>
-            <input
-              defaultValue={passwordLength}
-              onChange={(e) => setPasswordLength(e.target.value)}
-              type='number'
-              id='password-strength'
-              name='password-strength'
-              max='16'
-              min='8'
-            />
-          </div>
+        <Grid item>
+          <div className='container'>
+            <div className='generator'>
+              <h2 className='generator__header'>Password Generator</h2>
+              <div className='generator__password'>
+                <h3 style={{ margin: 'auto' }}>{password}</h3>
+                <button onClick={handleCopyPassword} className='copy__btn'>
+                  <ContentCopyIcon />
+                </button>
+              </div>
 
-          <div className='form-group'>
-            <label htmlFor='uppercase-letters'>Include Uppercase Letters</label>
-            <input
-              checked={includeUppercase}
-              onChange={(e) => setIncludeUppercase(e.target.checked)}
-              type='checkbox'
-              id='uppercase-letters'
-              name='uppercase-letters'
-            />
-          </div>
+              <div className='form-group'>
+                <label htmlFor='password-strength'>Password length</label>
+                <input
+                  defaultValue={passwordLength}
+                  onChange={(e) => setPasswordLength(e.target.value)}
+                  type='number'
+                  id='password-strength'
+                  name='password-strength'
+                  max='16'
+                  min='8'
+                />
+              </div>
 
-          <div className='form-group'>
-            <label htmlFor='lowercase-letters'>Include Lowercase Letters</label>
-            <input
-              checked={includeLowercase}
-              onChange={(e) => setIncludeLowercase(e.target.checked)}
-              type='checkbox'
-              id='lowercase-letters'
-              name='lowercase-letters'
-            />
-          </div>
+              <div className='form-group'>
+                <label htmlFor='uppercase-letters'>Include Uppercase Letters</label>
+                <input
+                  checked={includeUppercase}
+                  onChange={(e) => setIncludeUppercase(e.target.checked)}
+                  type='checkbox'
+                  id='uppercase-letters'
+                  name='uppercase-letters'
+                />
+              </div>
 
-          <div className='form-group'>
-            <label htmlFor='include-numbers'>Include Numbers</label>
-            <input
-              checked={includeNumbers}
-              onChange={(e) => setIncludeNumbers(e.target.checked)}
-              type='checkbox'
-              id='include-numbers'
-              name='include-numbers'
-            />
-          </div>
+              <div className='form-group'>
+                <label htmlFor='lowercase-letters'>Include Lowercase Letters</label>
+                <input
+                  checked={includeLowercase}
+                  onChange={(e) => setIncludeLowercase(e.target.checked)}
+                  type='checkbox'
+                  id='lowercase-letters'
+                  name='lowercase-letters'
+                />
+              </div>
 
-          <div className='form-group'>
-            <label htmlFor='include-symbols'>Include Symbols</label>
-            <input
-              checked={includeSymbols}
-              onChange={(e) => setIncludeSymbols(e.target.checked)}
-              type='checkbox'
-              id='include-symbols'
-              name='include-symbols'
-            />
-          </div>
+              <div className='form-group'>
+                <label htmlFor='include-numbers'>Include Numbers</label>
+                <input
+                  checked={includeNumbers}
+                  onChange={(e) => setIncludeNumbers(e.target.checked)}
+                  type='checkbox'
+                  id='include-numbers'
+                  name='include-numbers'
+                />
+              </div>
 
-          <button onClick={handleGeneratePassword} className='generator__btn'>
-            Generate Password
-          </button>
-        </div>
-      </div>
+              <div className='form-group'>
+                <label htmlFor='include-symbols'>Include Symbols</label>
+                <input
+                  checked={includeSymbols}
+                  onChange={(e) => setIncludeSymbols(e.target.checked)}
+                  type='checkbox'
+                  id='include-symbols'
+                  name='include-symbols'
+                />
+              </div>
+
+              <button onClick={handleGeneratePassword} className='generator__btn'>
+                Generate Password
+              </button>
+            </div>
+          </div>
+        </Grid>
+      </Grid>
     </Box>
   )
 }
