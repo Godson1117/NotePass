@@ -1,0 +1,65 @@
+.container {
+  width: 350px;
+  margin: 0 auto;
+  padding-top: 100px;
+}
+
+.generator {
+  background: rgba(38, 50, 56, 0.2);
+  backdrop-filter: blur(10px) saturate(120%);
+  border-radius: 30px;
+  box-shadow: 0px 2px 10px rgba(255, 255, 255, 0.2);
+  padding: 20px;
+}
+
+.generator__header {
+  text-align: center;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.generator__password {
+  position: relative;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 10px 7px;
+  color: #fff;
+  height: 30px;
+  width: 300px;
+  margin-bottom: 20px;
+}
+
+.copy__btn {
+  position: absolute;
+  background: #3b3b98;
+  color: #fff;
+  border: none;
+  height: 45px;
+  padding: 10px;
+  cursor: pointer;
+  top: 3px;
+  right: 3px;
+}
+
+.generator__btn {
+  background: #3b3b98;
+  border: none;
+  display: block;
+  width: 100%;
+  padding: 10px;
+  color: #fff;
+  font-size: 17px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.generator__btn:hover {
+  background: rgba(41, 234, 41, 0.5);
+  transform: scale(0.9);
+}
+
+.form-group {
+  display: flex;
+  justify-content: space-between;
+  color: #fff;
+  margin-bottom: 15px;
+}
