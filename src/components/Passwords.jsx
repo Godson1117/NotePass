@@ -11,6 +11,7 @@ import DeleteIcon from '@mui/icons-material/Delete'
 import EditIcon from '@mui/icons-material/Edit'
 import WarningTwoToneIcon from '@mui/icons-material/WarningTwoTone'
 import LoadingButton from '@mui/lab/LoadingButton/LoadingButton'
+import ContentCopyIcon from '@mui/icons-material/ContentCopy'
 import axios from "axios"
 import { useFormik } from 'formik'
 import * as Yup from "yup"
@@ -77,12 +78,12 @@ const Password = () => {
     }).then(res => {
       setPsswds(res.data)
       setLoading(false)
-    })
+    }).catch(() => { })
   }
 
   const updatepsswd = async (values, id) => {
     setProcessing(true)
-    await axios.put(`https://notepass-api.vercel.app/updatepassword/${id}`, values, {
+    await axios.put(`https://notepass-api.vercel.app/passwords/updatepassword/${id}`, values, {
       headers: {
         'authtoken': sessionStorage.getItem('authtoken')
       }
@@ -174,6 +175,28 @@ const Password = () => {
               <Typography align="left" variant="body2" mt={2}>{psswd.password}</Typography>
 
               <Box sx={{ textAlign: 'right' }}>
+                <Tooltip title="Copy">
+                  <IconButton size="small" onClick={() => {
+                    navigator.clipboard.writeText(psswd.password)
+                    setMessage("Password copied to Clipboard")
+                    setSuccess(true)
+                    setProcessing(true)
+                    setTimeout(() => {
+                      setProcessing(false)
+                    }, 3000)
+                  }}>
+                    <ContentCopyIcon sx={{
+                      color: 'white',
+                      ml: 1,
+                      '&:hover': {
+                        color: 'green'
+                      }
+                    }}>
+
+                    </ContentCopyIcon>
+                  </IconButton>
+                </Tooltip>
+
                 <Tooltip title="Edit">
                   <IconButton size="small" onClick={() => {
                     handleUpdateFormOpen()
@@ -340,7 +363,7 @@ const Password = () => {
                         color: '#616161'
                       },
                       mt: 2,
-                      width: '100px',
+                      width: '140px',
                       height: '40px',
                       color: 'white',
                     }}

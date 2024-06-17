@@ -4,6 +4,7 @@ import AddIcon from '@mui/icons-material/Add'
 import DeleteIcon from '@mui/icons-material/Delete'
 import EditIcon from '@mui/icons-material/Edit'
 import LoadingButton from '@mui/lab/LoadingButton/LoadingButton'
+import ContentCopyIcon from '@mui/icons-material/ContentCopy'
 import { useFormik } from 'formik'
 import axios from 'axios'
 import * as Yup from "yup"
@@ -75,9 +76,7 @@ const Notes = () => {
         }).then(res => {
             setNotes(res.data)
             setLoading(false)
-        }).catch(() => {
-
-        })
+        }).catch(() => { })
     }
 
     const updatenote = async (values, id) => {
@@ -168,9 +167,31 @@ const Notes = () => {
                             <Chip label={note.date} variant="outlined" size="small" sx={{ color: '#1de9b6', didsplay: 'block', ml: 30 }} />
                             <Typography variant="h4" underline="none" sx={{ display: 'block', color: 'red' }} >{note.title}</Typography>
                             <Typography align="left" variant="body2" mt={2}>{note.description}</Typography>
-                            {note.attachement && <Typography mt={2} component={Link} variant="body2" underline="none" href={`http://localhost:8000/${note.attachement}`} sx={{ display: 'block' }} >Click to see the attached file</Typography>}
+                            {note.attachement && <Typography mt={2} component={Link} variant="body2" underline="none" target='_blank' href={note.attachement} sx={{ display: 'block' }} >Click to see the attached file</Typography>}
 
                             <Box sx={{ textAlign: 'right' }}>
+                                <Tooltip title="Copy">
+                                    <IconButton size="small" onClick={() => {
+                                        navigator.clipboard.writeText(note.description)
+                                        setMessage("Note copied to Clipboard")
+                                        setSuccess(true)
+                                        setProcessing(true)
+                                        setTimeout(() => {
+                                            setProcessing(false)
+                                        }, 3000)
+                                    }}>
+                                        <ContentCopyIcon sx={{
+                                            color: 'white',
+                                            ml: 1,
+                                            '&:hover': {
+                                                color: 'green'
+                                            }
+                                        }}>
+
+                                        </ContentCopyIcon>
+                                    </IconButton>
+                                </Tooltip>
+
                                 <Tooltip title="Edit">
                                     <IconButton size="small" onClick={() => {
                                         handleUpdateFormOpen()

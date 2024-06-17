@@ -64,12 +64,13 @@ const Passgen = () => {
   }
 
   const copyToClipboard = () => {
-    const newTextArea = document.createElement('textarea')
-    newTextArea.innerText = password
-    document.body.appendChild(newTextArea)
-    newTextArea.select()
-    document.execCommand('copy')
-    newTextArea.remove()
+    // const newTextArea = document.createElement('textarea')
+    // newTextArea.innerText = password
+    // document.body.appendChild(newTextArea)
+    // newTextArea.select()
+    // document.execCommand('copy')
+    // newTextArea.remove()
+    navigator.clipboard.writeText(password)
   }
 
   const handleCopyPassword = (e) => {
