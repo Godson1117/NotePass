@@ -68,7 +68,7 @@ const Homepage = () => {
           align="center"
           component={motion.div}
           sx={{
-            background: 'linear-gradient(140deg, rgba(255,0,0,1) 30%, rgba(0,255,223,1) 60%)',
+            background: 'linear-gradient(120deg, rgba(255,0,0,1) 45%, rgba(0,255,223,1) 55%)',
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent',
             mt: 10,
@@ -85,13 +85,12 @@ const Homepage = () => {
         </Typography>
 
         <Typography
-          variant="body1"
+          variant="body2"
           sx={{
             mt: 2,
             textAlign: 'center',
-            background: 'linear-gradient(270deg, rgba(255,0,0,1) 30%, rgba(0,255,223,1) 60%)',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
+            fontStyle: 'italic',
+            textShadow: '1px 0px rgba(0,255,223,1)'
           }}
         >
           We understand the importance of keeping your personal and sensitive
